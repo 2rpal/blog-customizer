@@ -12,6 +12,12 @@
 	transform: translate(0);
 }
 
+.header {
+	font-weight: 800;
+	font-size: 31px;
+	text-transform: uppercase;
+}
+
 .form {
 	display: flex;
 	flex-shrink: 0;
@@ -23,6 +29,14 @@
 	padding: 50px 31px;
 	background-color: #ffffff;
 	border-right: 1px solid #000000;
+}
+
+.params_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 50px;
+	margin-bottom: 207px;
 }
 
 .bottomContainer {
