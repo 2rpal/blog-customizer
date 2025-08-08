@@ -29,7 +29,7 @@ export const ArticleParamsForm = ({
 	onSubmit,
 	onReset,
 }: ArticleParamsFormProps) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const asideRef = useRef<HTMLElement | null>(null);
 
 	const [formState, setFormState] = useState<ArticleStateType>(state);
@@ -39,11 +39,11 @@ export const ArticleParamsForm = ({
 	}, [state]);
 
 	useEffect(() => {
-		if (!isOpen) return;
+		if (!isMenuOpen) return;
 
 		const handleClickOutside = (e: MouseEvent) => {
 			if (asideRef.current && !asideRef.current.contains(e.target as Node)) {
-				setIsOpen(false);
+				setIsMenuOpen(false);
 			}
 		};
 
@@ -51,7 +51,7 @@ export const ArticleParamsForm = ({
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside);
 		};
-	}, [isOpen]);
+	}, [isMenuOpen]);
 
 	const handleChangeFont = (option: OptionType) => {
 		setFormState((prev) => {
@@ -112,19 +112,22 @@ export const ArticleParamsForm = ({
 	return (
 		<>
 			<ArrowButton
-				isOpen={isOpen}
+				isOpen={isMenuOpen}
 				onClick={() => {
-					setIsOpen((prev) => !prev);
+					setIsMenuOpen((prev) => !prev);
 				}}
 			/>
 			<aside
 				ref={asideRef}
-				className={clsx(styles.container, { [styles.container_open]: isOpen })}>
+				className={clsx(styles.container, {
+					[styles.container_open]: isMenuOpen,
+				})}>
 				<form
 					className={styles.form}
 					onReset={handleReset}
 					onSubmit={handleSubmit}>
 					<div className={styles.params_container}>
+						<h1 className={styles.header}>Задайте параметры</h1>
 						<Select
 							title='Шрифт'
 							options={fontFamilyOptions}

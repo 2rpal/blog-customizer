@@ -12,6 +12,12 @@
 	transform: translate(0);
 }
 
+.header {
+	font-weight: 800;
+	font-size: 31px;
+	text-transform: uppercase;
+}
+
 .form {
 	display: flex;
 	flex-shrink: 0;
@@ -30,6 +36,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 50px;
+	margin-bottom: 207px;
 }
 
 .bottomContainer {

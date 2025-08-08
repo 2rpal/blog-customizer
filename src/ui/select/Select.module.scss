@@ -78,7 +78,11 @@
 }
 
 .option:hover {
-	background: var(--grey, #c4c4c4);
+	background: rgb(238 238 238 / 100%);
+}
+
+.option:active {
+	background-color: rgb(215 215 215 / 100%);
 }
 
 @mixin option-color-before {
